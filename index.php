@@ -1,8 +1,18 @@
 <?php
-setcookie("user","Ilyés Bori",time()+5);
+    if (!isset($_COOKIE["visitis"])) {
+        $visitis =1;
+        
+    }else if(!isset($_COOKIE["user"])){
+        $visitis =$_COOKIE["visitis"]+1;
+
+    }else{
+        $visitis =$_COOKIE["visitis"];
+
+    }
+    setcookie("visitis",$visitis,time()+35);
+
+    setcookie("user","Ilyés Bori",time()+5);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -13,8 +23,10 @@ setcookie("user","Ilyés Bori",time()+5);
 <body>
     <main>
         <?php
-        if (issert ($_COOKIE["user"])) {
+        if (isset ($_COOKIE["user"])&& isset ($_COOKIE["visitis"])) {
+
             echo "Üdvözöllek kedves ".$_COOKIE["user"]."!";
+            echo"Ez a ".$_COOKIE["visitis"].". látogatásod. ";
         }
         else {
             echo"Üdvözöllek kedves vendég!";

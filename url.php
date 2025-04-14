@@ -7,16 +7,16 @@
 </head>
 <body>
     <?php
-    if (!isset($_GET["szamlalo"])) {
-        $szamlalo = 0;
-        
-    }else{
-        $szamlalo = $_GET["szamlalo"];
-        
+        if (isset($_GET["szamlalo"])&& preg_match("/^\d+$/",$_GET["szamlalo"])) {
+            $szamlalo = (int)$_GET["szamlalo"];
+            
+        }else{
+            $szamlalo= 0;
+            
 
-    }
-    echo "$szamlalo";
-    $szamlalo++;
+        }
+        echo "$szamlalo";
+        $szamlalo++;
     ?>
 <a href="url.php?szamlalo=<?php echo $szamlalo?>">Növel</a>
     

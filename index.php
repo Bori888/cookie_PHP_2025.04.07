@@ -25,7 +25,7 @@
         <?php
         if (isset ($_COOKIE["user"])&& isset ($_COOKIE["visitis"])) {
 
-            echo "Üdvözöllek kedves ".$_COOKIE["user"]."!";
+            echo "Üdvözöllek kedves ".$_COOKIE["user"]."!<br>";
             echo"Ez a ".$_COOKIE["visitis"].". látogatásod. ";
         }
         else {
